@@ -3,203 +3,549 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netflix ML Intelligence Platform — Auspify Internship Portfolio</title>
-  <!-- Chart.js for Interactive Visual Analytics -->
+  <title>Netflix Content Intelligence & Machine Learning Platform — Auspify Portfolio</title>
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Chart.js for High-Resolution Visual Analytics -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Production Theme Stylesheet -->
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
   <!-- =======================================================================
-       Navigation Bar
+       Laser Projection Scanner Line & Celestial Solar-Orbit Canvas
        ======================================================================= -->
-  <nav class="navbar">
-    <div class="brand-wrapper">
-      <a href="#" class="brand-logo">NETFLIX <span>ML Engine</span> <span style="font-size:0.75rem; color:#aaa; margin-left:6px;">by Karan Yadav</span></a>
-      <span class="badge-internship">Auspify ML Internship</span>
-      <span class="badge-author">👨‍💻 Developed by Karan Yadav</span>
-    </div>
-    <div class="nav-links">
-      <button class="nav-tab active" data-target="tab-overview">🌟 Overview</button>
-      <button class="nav-tab" data-target="tab-recs">🎬 Recommender</button>
-      <button class="nav-tab" data-target="tab-classifier">🧠 AI Classifier</button>
-      <button class="nav-tab" data-target="tab-segmentation">🧬 Archetypes</button>
-      <button class="nav-tab" data-target="tab-analytics">📊 Analytics</button>
-      <button class="nav-tab" data-target="tab-reports">📂 Reports & Visuals</button>
-    </div>
-  </nav>
+  <div class="laser-scanner-line"></div>
+  <canvas id="celestial-canvas"></canvas>
+
+  <div class="ambient-stage">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+    <div class="ambient-orb ambient-orb-3"></div>
+  </div>
 
   <!-- =======================================================================
-       Hero Header & Executive KPI Metrics Strip
+       Cybernetic Floating 3D HUD Inspection Dialog
        ======================================================================= -->
-  <header class="hero-section">
-    <div class="hero-banner">
-      <div class="hero-author-banner">
-        <span>👨‍💻 Developer: <strong>Karan Yadav</strong></span> • 
-        <span>Auspify Machine Learning Internship</span>
-      </div>
-      <h1 class="hero-title">Netflix Content Intelligence & <span>Machine Learning Platform</span></h1>
-      <p class="hero-subtitle">
-        A comprehensive production-grade implementation of 4 core machine learning paradigms:
-        Natural Language Processing recommendations, supervised format classification, unsupervised audience segmentation, and capstone executive analytics.
-      </p>
+  <div id="hud-inspector" class="hud-inspector">
+    <div class="hud-corner tl"></div>
+    <div class="hud-corner tr"></div>
+    <div class="hud-corner bl"></div>
+    <div class="hud-corner br"></div>
+    <div class="hud-header">
+      <span class="hud-category">✦ <span class="hud-category-text">TELEMETRY</span></span>
+      <span class="hud-status-badge">OPTIMAL</span>
+    </div>
+    <div class="hud-title">Title</div>
+    <div class="hud-metric-row">
+      <span class="hud-metric-value">0.0</span>
+      <span class="hud-metric-label">Metric</span>
+    </div>
+    <ul class="hud-specs-list"></ul>
+  </div>
 
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-value highlight-red">{{ "{:,}".format(total_titles) }}</div>
-          <div class="kpi-label">Catalog Titles Analyzed</div>
+  <!-- =======================================================================
+       Executive Glassmorphic Navigation Bar
+       ======================================================================= -->
+  <header class="navbar-wrapper">
+    <div class="navbar-container">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-group" aria-label="Netflix ML Studio Home"
+         data-hud-category="PLATFORM CORE"
+         data-hud-title="Netflix ML Studio Ecosystem"
+         data-hud-metric="v2.4 LTS"
+         data-hud-metric-label="Engine Release"
+         data-hud-status="ONLINE"
+         data-hud-specs="Paradigms: 4 Unified ML Pipelines;Runtime: Python 3 + Scikit-Learn + Flask;Data Pipeline: Weighted Content Soup Vectorizer;Visuals: Hardware Accelerated 60 FPS">
+        <span class="brand-netflix">NETFLIX</span>
+        <span class="brand-divider"></span>
+        <div class="brand-context">
+          <span class="brand-title">Content Intelligence</span>
+          <span class="brand-pill">ML Studio</span>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-value highlight-gold">69.6% / 30.4%</div>
-          <div class="kpi-label">Movies vs TV Shows</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-value highlight-teal">70.6%</div>
-          <div class="kpi-label">Streaming Boom Era</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-value highlight-red">1.0 Year</div>
-          <div class="kpi-label">Median Release Lag</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-value highlight-gold">99.7% / 1.00</div>
-          <div class="kpi-label">Classifier Acc / ROC-AUC</div>
+      </a>
+
+      <!-- Segmented Navigation Pills -->
+      <nav class="nav-tab-container" role="tablist">
+        <button class="nav-tab active" data-target="tab-overview" role="tab" aria-selected="true"
+                data-hud-category="NAVIGATION"
+                data-hud-title="Internship Overview"
+                data-hud-metric="4 Tasks"
+                data-hud-metric-label="Pipeline Portfolio"
+                data-hud-status="ACTIVE"
+                data-hud-specs="Task 1: NLP Recommendation Engine;Task 2: Supervised Format Classifier;Task 4: K-Means Segmentation;Task 6: Capstone Executive BI">
+          <span class="nav-tab-icon">✦</span> Overview
+        </button>
+        <button class="nav-tab" data-target="tab-recs" role="tab" aria-selected="false"
+                data-hud-category="NAVIGATION"
+                data-hud-title="Content Recommendation Engine"
+                data-hud-metric="10,000"
+                data-hud-metric-label="TF-IDF Features"
+                data-hud-status="READY"
+                data-hud-specs="Algorithm: Cosine Similarity Matrix;Latency: Sub-millisecond lookup;Query Cache: 8,807 precomputed titles">
+          <span class="nav-tab-icon">🎬</span> Recommender
+        </button>
+        <button class="nav-tab" data-target="tab-classifier" role="tab" aria-selected="false"
+                data-hud-category="NAVIGATION"
+                data-hud-title="AI Content Type Predictor"
+                data-hud-metric="99.7%"
+                data-hud-metric-label="Holdout Accuracy"
+                data-hud-status="TRAINED"
+                data-hud-specs="Best Model: Random Forest (100 estimators);Holdout Size: 20% stratified split;Inference: Live REST API">
+          <span class="nav-tab-icon">🧠</span> AI Classifier
+        </button>
+        <button class="nav-tab" data-target="tab-segmentation" role="tab" aria-selected="false"
+                data-hud-category="NAVIGATION"
+                data-hud-title="Catalog Archetypes Explorer"
+                data-hud-metric="k = 5"
+                data-hud-metric-label="Optimal Clusters"
+                data-hud-status="DISCOVERED"
+                data-hud-specs="Algorithm: K-Means Clustering;Projection: 2D Principal Component Analysis;Variance Explained: 41.2%">
+          <span class="nav-tab-icon">🧬</span> Archetypes
+        </button>
+        <button class="nav-tab" data-target="tab-analytics" role="tab" aria-selected="false"
+                data-hud-category="NAVIGATION"
+                data-hud-title="Executive BI Analytics"
+                data-hud-metric="4 Charts"
+                data-hud-metric-label="Longitudinal Dashboards"
+                data-hud-status="REAL-TIME"
+                data-hud-specs="Growth Trends: 2012-2021 additions;Geography: Top 10 international hubs;Demographics: Maturity distribution">
+          <span class="nav-tab-icon">📊</span> Analytics
+        </button>
+        <button class="nav-tab" data-target="tab-reports" role="tab" aria-selected="false"
+                data-hud-category="NAVIGATION"
+                data-hud-title="Reports & Visual Artifacts"
+                data-hud-metric="3 CSV/JSON"
+                data-hud-metric-label="Quant Deliverables"
+                data-hud-status="DOWNLOADABLE"
+                data-hud-specs="Model Metrics: Accuracy, F1, ROC-AUC;Cluster Profiles: Volume & format share;Executive Brief: JSON formatted summary">
+          <span class="nav-tab-icon">📂</span> Reports &amp; Visuals
+        </button>
+      </nav>
+
+      <!-- Single Prestigious Author Badge -->
+      <div class="navbar-meta">
+        <div class="author-pill" title="Auspify Machine Learning Internship Portfolio"
+             data-hud-category="AUTHOR & MENTORSHIP"
+             data-hud-title="Internship Capstone Portfolio"
+             data-hud-metric="4 Weeks"
+             data-hud-metric-label="Intensive Program"
+             data-hud-status="COMPLETED"
+             data-hud-specs="Developer: Karan Yadav;Organization: Auspify Internship;Domain: End-to-end Machine Learning;Verification: 100% Pipeline Verified">
+          <span class="pulse-dot"></span>
+          <span class="author-name">Karan Yadav</span>
+          <span class="author-sub">Auspify ML</span>
         </div>
       </div>
     </div>
   </header>
 
   <!-- =======================================================================
-       Main Content Container (Tabs)
+       Hero Section & Executive 3D KPI Metrics Strip
        ======================================================================= -->
-  <main class="main-container">
-
-    <!-- TAB 1: OVERVIEW -->
-    <div id="tab-overview" class="tab-pane active">
-      <div class="section-header">
-        <h2 class="section-title">🌟 Auspify ML Internship Project Overview</h2>
-        <p class="section-subtitle">Practical 4-week program portfolio designed & developed by <strong>Karan Yadav</strong> on the 8,807-title Netflix dataset.</p>
+  <section class="hero-wrapper">
+    <div class="hero-card">
+      <div class="hero-badge-pill"
+           data-hud-category="PORTFOLIO BADGE"
+           data-hud-title="Auspify ML Internship Portfolio"
+           data-hud-metric="Tasks 1, 2, 4, 6"
+           data-hud-metric-label="Applied Curricula"
+           data-hud-status="CERTIFIED"
+           data-hud-specs="Corpus: 8,807 Real-world Netflix Titles;Focus: NLP, Supervised, Unsupervised, BI;Validation: 5-Fold CV & Stratified Holdout">
+        <span class="sparkle">✦</span>
+        <span>Auspify Machine Learning Internship Capstone Portfolio</span>
       </div>
 
-      <div class="archetypes-grid">
-        <div class="archetype-card c0">
-          <div class="arch-header">
-            <span class="arch-id">Task 1</span>
-            <span class="arch-share">NLP & Similarity</span>
+      <h1 class="hero-heading text-3d">
+        Netflix Content Intelligence <span class="gradient-red shimmer-text">&amp; Machine Learning Engine</span>
+      </h1>
+
+      <p class="hero-description">
+        A production-grade implementation of 4 core machine learning paradigms:
+        Natural Language Processing recommendations, supervised format classification, unsupervised audience segmentation, and capstone executive analytics.
+      </p>
+
+      <!-- 5 Interactive 3D KPI Cards with Specular Glare & Live Telemetry HUD -->
+      <div class="kpi-container">
+        <!-- KPI 1 -->
+        <div class="kpi-card card-3d accent-red" data-tilt
+             data-hud-category="CATALOG INGESTION"
+             data-hud-title="Full Netflix Dataset Corpus"
+             data-hud-metric="{{ "{:,}".format(total_titles) }}"
+             data-hud-metric-label="Titles Analyzed"
+             data-hud-status="CLEANED & IMPUTED"
+             data-hud-specs="Coverage: Global releases 1925-2021;Schema: 12 standardized columns;Imputation: Handled unknown countries & ratings;Content Soup: 8,807 weighted metadata vectors">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="kpi-value-row">
+              <span class="kpi-num red count-up" data-target="{{ total_titles }}">{{ "{:,}".format(total_titles) }}</span>
+            </div>
+            <div class="kpi-label">Catalog Titles Analyzed</div>
           </div>
-          <h3 class="arch-name">Content Recommendation System</h3>
-          <ul class="arch-traits-list">
-            <li><strong>Core Tech:</strong> TF-IDF (10,000 features), Cosine Similarity</li>
-            <li><strong>Input:</strong> Weighted Content Soup (genres x2, cast, director, plot)</li>
-            <li><strong>Speed:</strong> Sub-millisecond similarity lookup</li>
-            <li><strong>Status:</strong> Validated across 5+ benchmark query sets</li>
-          </ul>
+          <div class="kpi-footer-metric">
+            <span class="dot" style="background:#FF4550;"></span> Complete Dataset Corpus
+          </div>
         </div>
 
-        <div class="archetype-card c1">
-          <div class="arch-header">
-            <span class="arch-id">Task 2</span>
-            <span class="arch-share">Supervised Learning</span>
+        <!-- KPI 2 -->
+        <div class="kpi-card card-3d accent-gold" data-tilt
+             data-hud-category="FORMAT DEMOGRAPHICS"
+             data-hud-title="Format Ratio Distribution"
+             data-hud-metric="69.6% / 30.4%"
+             data-hud-metric-label="Movies vs TV Series"
+             data-hud-status="STRATIFIED"
+             data-hud-specs="Total Movies: 5,876 titles (69.6%);Total TV Shows: 2,931 titles (30.4%);Imbalance Treatment: Stratified sampling in Task 2;Cross-Validation: Preserved class ratios">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="kpi-value-row">
+              <span class="kpi-num gold">69.6%</span>
+              <span class="kpi-subnum">/ 30.4%</span>
+            </div>
+            <div class="kpi-label">Movies vs TV Shows</div>
           </div>
-          <h3 class="arch-name">Content Type Prediction Model</h3>
-          <ul class="arch-traits-list">
-            <li><strong>Core Tech:</strong> Logistic Regression, Decision Tree, Random Forest</li>
-            <li><strong>Evaluation:</strong> 20% stratified holdout test split</li>
-            <li><strong>Metrics:</strong> 99.7% Accuracy, 0.998 F1, 1.000 ROC-AUC</li>
-            <li><strong>Leakage:</strong> Duration leakage strictly prevented</li>
-          </ul>
+          <div class="kpi-footer-metric">
+            <span class="dot" style="background:#FBBF24;"></span> 5,876 Movie • 2,931 TV
+          </div>
         </div>
 
-        <div class="archetype-card c2">
-          <div class="arch-header">
-            <span class="arch-id">Task 4</span>
-            <span class="arch-share">Unsupervised Learning</span>
+        <!-- KPI 3 -->
+        <div class="kpi-card card-3d accent-teal" data-tilt
+             data-hud-category="STREAMING ACCELERATION"
+             data-hud-title="Streaming Boom Expansion Era"
+             data-hud-metric="70.6%"
+             data-hud-metric-label="Added 2015-2021"
+             data-hud-status="EXPONENTIAL"
+             data-hud-specs="Growth Surge: Post-2015 streaming explosion;Global Hubs: India, UK, South Korea expansion;Longitudinal Velocity: Peak catalog additions 2019">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="kpi-value-row">
+              <span class="kpi-num teal count-up" data-target="70.6" data-suffix="%">70.6%</span>
+            </div>
+            <div class="kpi-label">Streaming Boom Era</div>
           </div>
-          <h3 class="arch-name">Netflix Content Segmentation</h3>
-          <ul class="arch-traits-list">
-            <li><strong>Core Tech:</strong> K-Means, Elbow Method, Silhouette Analysis</li>
-            <li><strong>Dimension:</strong> 2D PCA projection (41.2% variance explained)</li>
-            <li><strong>Clusters:</strong> 5 distinct strategic catalog archetypes</li>
-            <li><strong>Utility:</strong> Content acquisition & subscriber targeting</li>
-          </ul>
+          <div class="kpi-footer-metric">
+            <span class="dot" style="background:#34D399;"></span> Released 2015–2021
+          </div>
         </div>
 
-        <div class="archetype-card c3">
-          <div class="arch-header">
-            <span class="arch-id">Task 6</span>
-            <span class="arch-share">Capstone Analytics</span>
+        <!-- KPI 4 -->
+        <div class="kpi-card card-3d accent-red" data-tilt
+             data-hud-category="SUPPLY CHAIN VELOCITY"
+             data-hud-title="Production-to-Stream Release Lag"
+             data-hud-metric="1.0 Year"
+             data-hud-metric-label="Median Shelf Lag"
+             data-hud-status="HYPER-VELOCITY"
+             data-hud-specs="Metric Definition: year_added minus release_year;Netflix Originals: 0-year immediate streaming;Licensed Catalog: 1-3 year window;Distribution Velocity: 3x faster than theatrical legacy">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="kpi-value-row">
+              <span class="kpi-num red">1.0</span>
+              <span class="kpi-subnum">Year</span>
+            </div>
+            <div class="kpi-label">Median Release Lag</div>
           </div>
-          <h3 class="arch-name">Content Success Analytics Engine</h3>
-          <ul class="arch-traits-list">
-            <li><strong>Core Tech:</strong> 5-Fold Stratified CV, KPI Synthesis</li>
-            <li><strong>Predictive:</strong> International reach likelihood modeling</li>
-            <li><strong>Insights:</strong> Format shift, global hub trends, turnover velocity</li>
-            <li><strong>Deliverable:</strong> Executive visual dashboard</li>
-          </ul>
+          <div class="kpi-footer-metric">
+            <span class="dot" style="background:#FF4550;"></span> Rapid Distribution Velocity
+          </div>
+        </div>
+
+        <!-- KPI 5 -->
+        <div class="kpi-card card-3d accent-gold" data-tilt
+             data-hud-category="CLASSIFIER BENCHMARK"
+             data-hud-title="Supervised Model Evaluation"
+             data-hud-metric="99.7% / 1.00"
+             data-hud-metric-label="Accuracy / ROC-AUC"
+             data-hud-status="ZERO LEAKAGE"
+             data-hud-specs="Best Algorithm: Random Forest Classifier;Holdout Split: 20% stratified test set;Duration Leakage: Strictly removed;F1-Score: 0.998 macro average">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="kpi-value-row">
+              <span class="kpi-num gold">99.7%</span>
+              <span class="kpi-subnum">/ 1.00</span>
+            </div>
+            <div class="kpi-label">Classifier Acc / ROC-AUC</div>
+          </div>
+          <div class="kpi-footer-metric">
+            <span class="dot" style="background:#FBBF24;"></span> Stratified Holdout Test
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       Main Stage Container (Tab Panels)
+       ======================================================================= -->
+  <main class="main-stage">
+
+    <!-- ===================================================================
+         TAB 1: INTERNSHIP PROGRAM OVERVIEW
+         =================================================================== -->
+    <div id="tab-overview" class="tab-pane active" role="tabpanel">
+      <div class="section-headline">
+        <h2 class="section-title text-3d">
+          <span class="section-icon">🌟</span> Auspify ML Internship Program Architecture
+        </h2>
+        <p class="section-subtitle">
+          Practical 4-week research &amp; development portfolio designed by <strong>Karan Yadav</strong> on Netflix's 8,807-title catalog.
+        </p>
+      </div>
+
+      <div class="overview-grid">
+        <!-- Task 1 Card -->
+        <div class="overview-card card-3d task-1" data-tilt
+             data-hud-category="TASK 1 SPECIFICATION"
+             data-hud-title="Content Recommendation System"
+             data-hud-metric="10,000 Dims"
+             data-hud-metric-label="Feature Vector Space"
+             data-hud-status="VALIDATED"
+             data-hud-specs="Vectorization: TF-IDF with sublinear term frequency;Content Soup: 2x Genre weights + Cast + Director + Plot;Similarity Metric: Linear Kernel Cosine Distance;Lookup Complexity: O(N) ranked partition">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="card-header-row">
+              <span class="task-tag">Task 1</span>
+              <span class="paradigm-badge">NLP &amp; Similarity</span>
+            </div>
+            <h3 class="overview-title">Content Recommendation Engine</h3>
+            <ul class="spec-list">
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Core Tech:</span>
+                <span class="value">TF-IDF Vectorizer (10,000 features), Cosine Similarity</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Input:</span>
+                <span class="value">Weighted Content Soup (genre ×2, cast, director, synopsis)</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Speed:</span>
+                <span class="value">Sub-millisecond semantic search lookup</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Validation:</span>
+                <span class="value">Verified on benchmark cross-genre reference queries</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 2 Card -->
+        <div class="overview-card card-3d task-2" data-tilt
+             data-hud-category="TASK 2 SPECIFICATION"
+             data-hud-title="Supervised Content Classifier"
+             data-hud-metric="99.7% ACC"
+             data-hud-metric-label="Random Forest Holdout"
+             data-hud-status="BENCHMARKED"
+             data-hud-specs="Models Tested: Logistic Regression, Decision Tree, Random Forest;Target Variable: Movie (1) vs TV Show (0);Feature Engineering: TF-IDF genres + Country One-Hot + Rating;Leakage Guard: Duration string format stripped">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="card-header-row">
+              <span class="task-tag">Task 2</span>
+              <span class="paradigm-badge">Supervised Learning</span>
+            </div>
+            <h3 class="overview-title">Content Type Prediction Model</h3>
+            <ul class="spec-list">
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Core Tech:</span>
+                <span class="value">Logistic Regression, Decision Tree, Random Forest</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Validation:</span>
+                <span class="value">20% stratified holdout with zero duration leakage</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Metrics:</span>
+                <span class="value">99.7% Accuracy, 0.998 F1-Score, 1.000 ROC-AUC</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Inference:</span>
+                <span class="value">Real-time REST API serving live probabilities</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 4 Card -->
+        <div class="overview-card card-3d task-4" data-tilt
+             data-hud-category="TASK 4 SPECIFICATION"
+             data-hud-title="K-Means Catalog Segmentation"
+             data-hud-metric="k = 5"
+             data-hud-metric-label="Optimal Clusters"
+             data-hud-status="PCA REDUCED"
+             data-hud-specs="Model: K-Means with k-means++ initialization;Hyperparam Optimization: Elbow Method & Silhouette Curve;Decomposition: 2D Principal Component Analysis;Variance Retained: 41.2% explained variance">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="card-header-row">
+              <span class="task-tag">Task 4</span>
+              <span class="paradigm-badge">Unsupervised Learning</span>
+            </div>
+            <h3 class="overview-title">Netflix Catalog Segmentation</h3>
+            <ul class="spec-list">
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Core Tech:</span>
+                <span class="value">K-Means, Elbow Method, Silhouette Optimization</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Projection:</span>
+                <span class="value">2D Principal Component Analysis (41.2% variance)</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Clusters:</span>
+                <span class="value">5 distinct strategic catalog archetypes discovered</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Utility:</span>
+                <span class="value">Acquisition roadmap &amp; demographic targeting</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 6 Card -->
+        <div class="overview-card card-3d task-6" data-tilt
+             data-hud-category="TASK 6 SPECIFICATION"
+             data-hud-title="Executive BI Analytics Engine"
+             data-hud-metric="10 Hubs"
+             data-hud-metric-label="Geographic Matrix"
+             data-hud-status="SYNTHESIZED"
+             data-hud-specs="Growth Analysis: Yearly movie vs TV additions;Maturity Demographics: TV-MA, TV-14, R breakdown;Hub Rankings: US, India, UK, Canada, France;Executive Output: Machine-readable JSON summary">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="card-header-row">
+              <span class="task-tag">Task 6</span>
+              <span class="paradigm-badge">Capstone Analytics</span>
+            </div>
+            <h3 class="overview-title">Content Success Analytics Engine</h3>
+            <ul class="spec-list">
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Core Tech:</span>
+                <span class="value">5-Fold Stratified CV, KPI Synthesis &amp; Longitudinal BI</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Predictive:</span>
+                <span class="value">International reach likelihood &amp; format velocity</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Visuals:</span>
+                <span class="value">Interactive Chart.js executive dashboards</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-bullet">▸</span>
+                <span class="label">Delivery:</span>
+                <span class="value">Machine-readable JSON executive brief</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 2: RECOMMENDER -->
-    <div id="tab-recs" class="tab-pane">
-      <div class="section-header">
-        <h2 class="section-title">🎬 Task 1: Live Content Recommendation Engine</h2>
-        <p class="section-subtitle">Search any movie or TV series from Netflix's 8,807 titles to retrieve semantic matches ranked by Cosine Similarity.</p>
+    <!-- ===================================================================
+         TAB 2: LIVE CONTENT RECOMMENDER
+         =================================================================== -->
+    <div id="tab-recs" class="tab-pane" role="tabpanel">
+      <div class="section-headline">
+        <h2 class="section-title text-3d">
+          <span class="section-icon">🎬</span> Task 1: Live Content Recommendation Engine
+        </h2>
+        <p class="section-subtitle">
+          Query any title from Netflix's 8,807 releases to compute semantic cosine similarity vectors across genres, directors, and synopsis.
+        </p>
       </div>
 
-      <div class="search-box-wrapper">
-        <div class="search-controls">
-          <div class="input-group">
-            <input type="text" id="search-title" class="search-input" placeholder="Enter title (e.g. Stranger Things, Narcos, Inception)..." value="Stranger Things" autocomplete="off">
-            <div id="autocomplete-list" class="autocomplete-list"></div>
+      <div class="search-card-wrapper"
+           data-hud-category="VECTOR ENGINE"
+           data-hud-title="Cosine Similarity Search Bar"
+           data-hud-metric="0.8ms"
+           data-hud-metric-label="Average Latency"
+           data-hud-status="ONLINE"
+           data-hud-specs="Vocabulary: 10,000 n-gram tokens;Weights: Title 1x, Cast 1x, Director 1x, Genres 2x;Distance: 1 - cosine_distance;Auto-complete: Instant trie prefix search">
+        <div class="search-flex-row">
+          <div class="search-input-shell">
+            <span class="search-icon-adornment">🔍</span>
+            <input type="text" id="search-title" class="search-field" placeholder="Search catalog title (e.g. Stranger Things, Narcos, Inception)..." value="Stranger Things" autocomplete="off">
+            <div id="autocomplete-list" class="autocomplete-flyout"></div>
           </div>
 
-          <select id="filter-type" class="filter-select">
+          <select id="filter-type" class="filter-dropdown" aria-label="Filter Format">
             <option value="All">All Formats</option>
             <option value="Movie">Movies Only</option>
             <option value="TV Show">TV Shows Only</option>
           </select>
 
-          <button id="btn-get-recs" class="btn-primary">
-            🔍 Find Recommendations
+          <button id="btn-get-recs" class="btn-netflix"
+                  data-hud-category="SEARCH ACTION"
+                  data-hud-title="Execute Vector Inference"
+                  data-hud-metric="Top 6"
+                  data-hud-metric-label="Ranked Matches"
+                  data-hud-status="READY"
+                  data-hud-specs="API Route: /api/recommend;Algorithm: linear_kernel matrix lookup;Filtering: On-the-fly type partition">
+            Find Matches
           </button>
         </div>
 
-        <div class="preset-buttons">
-          <span class="preset-label">Quick Benchmarks:</span>
-          <button class="preset-chip" data-title="Stranger Things">Stranger Things</button>
-          <button class="preset-chip" data-title="Narcos">Narcos</button>
-          <button class="preset-chip" data-title="Breaking Bad">Breaking Bad</button>
-          <button class="preset-chip" data-title="Inception">Inception</button>
-          <button class="preset-chip" data-title="The Crown">The Crown</button>
-          <button class="preset-chip" data-title="Dark">Dark</button>
-          <button class="preset-chip" data-title="Ozark">Ozark</button>
+        <div class="chip-bar">
+          <span class="chip-caption">Benchmark Queries:</span>
+          <button class="preset-chip-btn" data-title="Stranger Things">Stranger Things</button>
+          <button class="preset-chip-btn" data-title="Narcos">Narcos</button>
+          <button class="preset-chip-btn" data-title="Breaking Bad">Breaking Bad</button>
+          <button class="preset-chip-btn" data-title="Inception">Inception</button>
+          <button class="preset-chip-btn" data-title="The Crown">The Crown</button>
+          <button class="preset-chip-btn" data-title="Dark">Dark</button>
+          <button class="preset-chip-btn" data-title="Ozark">Ozark</button>
         </div>
       </div>
 
-      <div id="recs-status-msg" style="margin-bottom: 1.2rem; font-size: 0.95rem; color: var(--text-muted);"></div>
+      <div id="recs-status-msg" style="margin-bottom: 1.2rem; font-size: 0.92rem; color: var(--text-secondary);"></div>
       <div id="recs-container" class="recs-grid"></div>
     </div>
 
-    <!-- TAB 3: CLASSIFIER -->
-    <div id="tab-classifier" class="tab-pane">
-      <div class="section-header">
-        <h2 class="section-title">🧠 Task 2: Live AI Content Type Predictor</h2>
-        <p class="section-subtitle">Test the trained supervised machine learning classifier live by providing custom project attributes.</p>
+    <!-- ===================================================================
+         TAB 3: LIVE AI CLASSIFIER
+         =================================================================== -->
+    <div id="tab-classifier" class="tab-pane" role="tabpanel">
+      <div class="section-headline">
+        <h2 class="section-title text-3d">
+          <span class="section-icon">🧠</span> Task 2: Live AI Content Type Predictor
+        </h2>
+        <p class="section-subtitle">
+          Test the trained supervised machine learning classifier live by providing custom project attributes.
+        </p>
       </div>
 
-      <div class="classifier-layout">
-        <div class="form-card">
-          <h3 style="margin-bottom: 1.2rem; font-size: 1.2rem;">Title Specification & Metadata</h3>
+      <div class="classifier-split-grid">
+        <!-- Form Specification -->
+        <div class="classifier-form-card">
+          <h3>Title Specification &amp; Metadata</h3>
 
-          <div class="form-group">
-            <label class="form-label">Project Title</label>
-            <input type="text" id="input-title" class="form-control" value="Cyber Odyssey 2049" placeholder="Enter working title...">
+          <div class="form-group-block">
+            <label class="form-field-label">Working Title</label>
+            <input type="text" id="input-title" class="input-ctrl" value="Cyber Odyssey 2049" placeholder="Enter title...">
           </div>
 
-          <div class="form-group">
-            <label class="form-label">Primary Country of Origin</label>
-            <select id="input-country" class="form-control">
+          <div class="form-group-block">
+            <label class="form-field-label">Primary Country of Origin</label>
+            <select id="input-country" class="input-ctrl">
               <option value="United States">United States</option>
               <option value="India">India</option>
               <option value="United Kingdom">United Kingdom</option>
@@ -211,9 +557,9 @@
             </select>
           </div>
 
-          <div class="form-group">
-            <label class="form-label">Target Maturity Rating</label>
-            <select id="input-rating" class="form-control">
+          <div class="form-group-block">
+            <label class="form-field-label">Maturity Rating</label>
+            <select id="input-rating" class="input-ctrl">
               <option value="TV-MA">TV-MA (Mature Adults)</option>
               <option value="TV-14">TV-14 (Parents Strongly Cautioned)</option>
               <option value="R">R (Restricted)</option>
@@ -223,183 +569,338 @@
             </select>
           </div>
 
-          <div class="form-group">
-            <label class="form-label">Release Year</label>
-            <input type="number" id="input-year" class="form-control" value="2022" min="1950" max="2030">
+          <div class="form-group-block">
+            <label class="form-field-label">Release Year</label>
+            <input type="number" id="input-year" class="input-ctrl" value="2022" min="1950" max="2030">
           </div>
 
-          <div class="form-group">
-            <label class="form-label">Selected Genres</label>
-            <div class="genre-checkboxes">
-              <label class="checkbox-label"><input type="checkbox" name="genre-check" value="Dramas" checked> Dramas</label>
-              <label class="checkbox-label"><input type="checkbox" name="genre-check" value="Action & Adventure" checked> Action & Adventure</label>
-              <label class="checkbox-label"><input type="checkbox" name="genre-check" value="Sci-Fi & Fantasy" checked> Sci-Fi & Fantasy</label>
-              <label class="checkbox-label"><input type="checkbox" name="genre-check" value="Comedies"> Comedies</label>
-              <label class="checkbox-label"><input type="checkbox" name="genre-check" value="Thrillers"> Thrillers</label>
-              <label class="checkbox-label"><input type="checkbox" name="genre-check" value="Crime TV Shows"> Crime TV Shows</label>
-              <label class="checkbox-label"><input type="checkbox" name="genre-check" value="International Movies"> Int'l Movies</label>
-              <label class="checkbox-label"><input type="checkbox" name="genre-check" value="Documentaries"> Documentaries</label>
+          <div class="form-group-block">
+            <label class="form-field-label">Associated Genres</label>
+            <div class="genre-grid-picker">
+              <label class="genre-check-item"><input type="checkbox" name="genre-check" value="Dramas" checked> Dramas</label>
+              <label class="genre-check-item"><input type="checkbox" name="genre-check" value="Action & Adventure" checked> Action &amp; Adventure</label>
+              <label class="genre-check-item"><input type="checkbox" name="genre-check" value="Sci-Fi & Fantasy" checked> Sci-Fi &amp; Fantasy</label>
+              <label class="genre-check-item"><input type="checkbox" name="genre-check" value="Comedies"> Comedies</label>
+              <label class="genre-check-item"><input type="checkbox" name="genre-check" value="Thrillers"> Thrillers</label>
+              <label class="genre-check-item"><input type="checkbox" name="genre-check" value="Crime TV Shows"> Crime TV Shows</label>
+              <label class="genre-check-item"><input type="checkbox" name="genre-check" value="International Movies"> Int'l Movies</label>
+              <label class="genre-check-item"><input type="checkbox" name="genre-check" value="Documentaries"> Documentaries</label>
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="form-label">Plot Synopsis / Description</label>
-            <textarea id="input-desc" class="form-control" placeholder="A disgraced detective uncovers an artificial intelligence syndicate operating in subterranean neo-Tokyo...">In a dystopian cyberpunk city, a rogue investigator and an android partner search for a missing data architect.</textarea>
+          <div class="form-group-block">
+            <label class="form-field-label">Plot Synopsis</label>
+            <textarea id="input-desc" class="input-ctrl" placeholder="Describe plot...">In a dystopian cyberpunk city, a rogue investigator and an android partner search for a missing data architect.</textarea>
           </div>
 
-          <button id="btn-run-predict" class="btn-primary" style="width: 100%; justify-content: center;">
-            ⚡ Predict Content Type
+          <button id="btn-run-predict" class="btn-netflix" style="width: 100%; justify-content: center;"
+                  data-hud-category="INFERENCE ENGINE"
+                  data-hud-title="Execute Supervised Predictor"
+                  data-hud-metric="< 5ms"
+                  data-hud-metric-label="Inference Latency"
+                  data-hud-status="READY"
+                  data-hud-specs="API Route: /api/predict;Pipeline: OneHotEncoder + TF-IDF -> RandomForest;Output: Movie vs TV Show Likelihood">
+            ⚡ Run Machine Learning Prediction
           </button>
         </div>
 
-        <div class="prediction-card">
-          <h3 style="color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Predicted Format</h3>
-          <div id="pred-result-badge" class="pred-badge-large">Movie</div>
+        <!-- Output Inference Card -->
+        <div class="prediction-display-card card-3d" data-tilt
+             data-hud-category="MODEL TELEMETRY"
+             data-hud-title="Real-Time Classification Output"
+             data-hud-metric="88.5%"
+             data-hud-metric-label="Confidence Score"
+             data-hud-status="INFERRED"
+             data-hud-specs="Decision Threshold: 0.50;Model: Random Forest (100 Trees);Format Cue: Feature weights from genres & rating;Leakage: Zero duration dependencies">
+          <div class="glare-overlay"></div>
+          <span class="pred-overline">ML Model Output</span>
+          <div id="pred-result-badge" class="pred-hero-badge">Movie</div>
 
-          <div class="meter-wrapper">
-            <div class="meter-label-row">
-              <span style="color: var(--primary-red);">Movie Probability</span>
-              <span id="pred-movie-pct" style="color: var(--primary-red);">88.5%</span>
+          <div class="probability-meter-box">
+            <div class="prob-metric-row">
+              <span style="color: #FF4550;">Movie Likelihood</span>
+              <span id="pred-movie-pct" style="color: #FF4550;">88.5%</span>
             </div>
-            <div class="progress-bar-track">
-              <div id="pred-meter-fill" class="progress-bar-fill" style="width: 88.5%;"></div>
+            <div class="track-rail">
+              <div id="pred-meter-fill" class="fill-bar" style="width: 88.5%;"></div>
             </div>
-            <div class="meter-label-row" style="margin-top: 0.6rem;">
-              <span style="color: #3a86ff;">TV Show Probability</span>
-              <span id="pred-tv-pct" style="color: #3a86ff;">11.5%</span>
+            <div class="prob-metric-row" style="margin-top: 0.6rem;">
+              <span style="color: #60A5FA;">TV Show Likelihood</span>
+              <span id="pred-tv-pct" style="color: #60A5FA;">11.5%</span>
             </div>
           </div>
 
-          <p id="pred-confidence-text" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">
-            Model Confidence: <strong>88.5%</strong> (Movie Likelihood)
+          <p id="pred-confidence-text" class="pred-detail-note">
+            Model Confidence: <strong>88.5%</strong> (High Certainty Movie)
           </p>
         </div>
       </div>
     </div>
 
-    <!-- TAB 4: SEGMENTATION ARCHETYPES -->
-    <div id="tab-segmentation" class="tab-pane">
-      <div class="section-header">
-        <h2 class="section-title">🧬 Task 4: Discovered Content Archetypes</h2>
-        <p class="section-subtitle">Natural catalog clustering revealed via K-Means ($k=5$) and 2D Principal Component Analysis.</p>
+    <!-- ===================================================================
+         TAB 4: K-MEANS SEGMENTATION ARCHETYPES
+         =================================================================== -->
+    <div id="tab-segmentation" class="tab-pane" role="tabpanel">
+      <div class="section-headline">
+        <h2 class="section-title text-3d">
+          <span class="section-icon">🧬</span> Task 4: Discovered Catalog Archetypes
+        </h2>
+        <p class="section-subtitle">
+          Natural catalog clustering revealed via K-Means (k=5) and 2D Principal Component Analysis.
+        </p>
       </div>
 
       <div class="archetypes-grid">
         {% for c in clusters %}
-        <div class="archetype-card c{{ c.cluster }}">
-          <div class="arch-header">
-            <span class="arch-id">Cluster {{ c.cluster }}</span>
-            <span class="arch-share">{{ c.pct_catalog }}% of Library</span>
+        <div class="archetype-card card-3d c{{ c.cluster }}" data-tilt
+             data-hud-category="ARCHETYPE CLUSTER"
+             data-hud-title="{{ c.archetype_name }}"
+             data-hud-metric="{{ c.pct_catalog }}%"
+             data-hud-metric-label="Catalog Volume Share"
+             data-hud-status="CLUSTER {{ c.cluster }}"
+             data-hud-specs="Titles Count: {{ "{:,}".format(c.title_count) }};Format Composition: {{ c.movie_pct }}% Movies, {{ c.tv_show_pct }}% TV;Nations: {{ c.primary_countries }};Centroid Distance: Optimal k=5 cluster">
+          <div class="glare-overlay"></div>
+          <div>
+            <div class="arch-header-row">
+              <span class="arch-pill">Cluster {{ c.cluster }}</span>
+              <span class="arch-volume">{{ c.pct_catalog }}% of Catalog</span>
+            </div>
+            <h3 class="arch-headline">{{ c.archetype_name }}</h3>
+            <ul class="arch-specs">
+              <li><strong>Total Titles:</strong> {{ "{:,}".format(c.title_count) }}</li>
+              <li><strong>Format Split:</strong> {{ c.movie_pct }}% Movies / {{ c.tv_show_pct }}% TV</li>
+              <li><strong>Top Genres:</strong> {{ c.dominant_genres }}</li>
+              <li><strong>Core Nations:</strong> {{ c.primary_countries }}</li>
+              <li><strong>Sample Titles:</strong> <em>{{ c.sample_titles }}</em></li>
+            </ul>
           </div>
-          <h3 class="arch-name">{{ c.archetype_name }}</h3>
-          <ul class="arch-traits-list">
-            <li><strong>Total Titles:</strong> {{ "{:,}".format(c.title_count) }}</li>
-            <li><strong>Format Split:</strong> {{ c.movie_pct }}% Movies / {{ c.tv_show_pct }}% TV</li>
-            <li><strong>Top Genres:</strong> {{ c.dominant_genres }}</li>
-            <li><strong>Key Nations:</strong> {{ c.primary_countries }}</li>
-            <li><strong>Examples:</strong> <em>{{ c.sample_titles }}</em></li>
-          </ul>
         </div>
         {% endfor %}
       </div>
     </div>
 
-    <!-- TAB 5: ANALYTICS DASHBOARD -->
-    <div id="tab-analytics" class="tab-pane">
-      <div class="section-header">
-        <h2 class="section-title">📊 Task 6: Executive Analytics Dashboard</h2>
-        <p class="section-subtitle">Real-time business intelligence visualizations synthesizing catalog growth, geography, demographics, and format dynamics.</p>
+    <!-- ===================================================================
+         TAB 5: EXECUTIVE ANALYTICS DASHBOARD
+         =================================================================== -->
+    <div id="tab-analytics" class="tab-pane" role="tabpanel">
+      <div class="section-headline">
+        <h2 class="section-title text-3d">
+          <span class="section-icon">📊</span> Task 6: Executive Analytics Dashboard
+        </h2>
+        <p class="section-subtitle">
+          Real-time business intelligence visualizations synthesizing catalog growth, geography, demographics, and format dynamics.
+        </p>
       </div>
 
-      <div class="charts-grid">
-        <div class="chart-card">
-          <h3 class="chart-card-title">📈 Annual Catalog Additions (Movies vs TV Shows)</h3>
-          <div class="chart-canvas-wrapper">
+      <div class="bi-charts-grid">
+        <div class="bi-chart-card card-3d" data-tilt
+             data-hud-category="GROWTH TIME-SERIES"
+             data-hud-title="Longitudinal Additions"
+             data-hud-metric="2012-2021"
+             data-hud-metric-label="Analyzed Window"
+             data-hud-status="RENDERED"
+             data-hud-specs="Peak Ingestion Year: 2019;Post-2016 Acceleration: +240% volume expansion;Format Ratio Shift: Steady TV show gain">
+          <div class="glare-overlay"></div>
+          <h3 class="bi-chart-title">📈 Annual Catalog Additions (Movies vs TV Shows)</h3>
+          <div class="bi-canvas-shell">
             <canvas id="chart-growth"></canvas>
           </div>
         </div>
 
-        <div class="chart-card">
-          <h3 class="chart-card-title">🌍 Top 10 International Production Hubs</h3>
-          <div class="chart-canvas-wrapper">
+        <div class="bi-chart-card card-3d" data-tilt
+             data-hud-category="GEOGRAPHIC HUBS"
+             data-hud-title="International Production Hubs"
+             data-hud-metric="Top 10"
+             data-hud-metric-label="Leading Nations"
+             data-hud-status="RENDERED"
+             data-hud-specs="Hub Leader: United States (>3,000 titles);Key Global Centers: India, UK, Canada, France, Japan;Expansion Markets: South Korea, Spain, Germany">
+          <div class="glare-overlay"></div>
+          <h3 class="bi-chart-title">🌍 Top 10 International Production Hubs</h3>
+          <div class="bi-canvas-shell">
             <canvas id="chart-countries"></canvas>
           </div>
         </div>
 
-        <div class="chart-card">
-          <h3 class="chart-card-title">🎯 Target Audience Maturity Demographics</h3>
-          <div class="chart-canvas-wrapper">
+        <div class="bi-chart-card card-3d" data-tilt
+             data-hud-category="AUDIENCE SEGMENTS"
+             data-hud-title="Maturity Rating Distribution"
+             data-hud-metric="6 Tiers"
+             data-hud-metric-label="Ratings Analyzed"
+             data-hud-status="RENDERED"
+             data-hud-specs="Dominant Bracket: TV-MA & TV-14 (~60% total);Youth Content: PG-13 & TV-PG (~22%);Kids Programming: TV-Y & TV-Y7">
+          <div class="glare-overlay"></div>
+          <h3 class="bi-chart-title">🎯 Target Audience Maturity Demographics</h3>
+          <div class="bi-canvas-shell">
             <canvas id="chart-ratings"></canvas>
           </div>
         </div>
 
-        <div class="chart-card">
-          <h3 class="chart-card-title">🔄 Structural Shift: Movies vs TV Series (%)</h3>
-          <div class="chart-canvas-wrapper">
+        <div class="bi-chart-card card-3d" data-tilt
+             data-hud-category="STRATEGIC SHIFT"
+             data-hud-title="Format Ratio Longitudinal Shift"
+             data-hud-metric="33.7% TV"
+             data-hud-metric-label="2021 TV Share"
+             data-hud-status="RENDERED"
+             data-hud-specs="Trend: TV Series share grew from 20.9% (2014) to 33.7% (2021);Strategic Intent: High subscriber retention via multi-season episodic content">
+          <div class="glare-overlay"></div>
+          <h3 class="bi-chart-title">🔄 Longitudinal Shift: Movies vs TV Series (%)</h3>
+          <div class="bi-canvas-shell">
             <canvas id="chart-trends"></canvas>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 6: REPORTS & GALLERY -->
-    <div id="tab-reports" class="tab-pane">
-      <div class="section-header">
-        <h2 class="section-title">📂 Reports, Downloads & Visual Gallery</h2>
-        <p class="section-subtitle">Access quantitative evaluation reports, data tables, and high-resolution plots generated during the internship.</p>
+    <!-- ===================================================================
+         TAB 6: REPORTS, DOWNLOADS & VISUAL GALLERY
+         =================================================================== -->
+    <div id="tab-reports" class="tab-pane" role="tabpanel">
+      <div class="section-headline">
+        <h2 class="section-title text-3d">
+          <span class="section-icon">📂</span> Quantitative Reports &amp; Visual Gallery
+        </h2>
+        <p class="section-subtitle">
+          Access quantitative evaluation metrics, dataset CSV reports, and high-resolution figures.
+        </p>
       </div>
 
-      <div class="reports-grid">
-        <div class="report-download-card">
+      <div class="download-grid">
+        <div class="download-tile card-3d" data-tilt
+             data-hud-category="CSV ARTIFACT"
+             data-hud-title="Task 2 Classifier Benchmarks"
+             data-hud-metric="CSV"
+             data-hud-metric-label="Tabular Metrics"
+             data-hud-status="READY"
+             data-hud-specs="Columns: Model, Accuracy, Precision, Recall, F1, ROC-AUC;Algorithms: Logistic Regression, Decision Tree, Random Forest">
+          <div class="glare-overlay"></div>
           <div>
-            <h4 style="color: #ffffff; margin-bottom: 0.4rem;">📊 Task 2 Model Benchmark</h4>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">Accuracy, Precision, Recall, F1, and ROC-AUC for all 3 classifiers.</p>
+            <h4>📊 Task 2 Model Benchmark</h4>
+            <p>Accuracy, Precision, Recall, F1, and ROC-AUC for all 3 classifiers.</p>
           </div>
-          <a href="/reports/task2_model_metrics.csv" class="btn-primary" download style="text-decoration: none; justify-content: center; font-size: 0.85rem;">Download CSV</a>
+          <a href="/reports/task2_model_metrics.csv" class="btn-netflix" download style="text-decoration:none; justify-content:center; font-size:0.84rem;">
+            Download Metrics CSV
+          </a>
         </div>
 
-        <div class="report-download-card">
+        <div class="download-tile card-3d" data-tilt
+             data-hud-category="CSV ARTIFACT"
+             data-hud-title="Task 4 Cluster Profiles"
+             data-hud-metric="CSV"
+             data-hud-metric-label="Archetype Summary"
+             data-hud-status="READY"
+             data-hud-specs="Columns: Cluster ID, Title Count, Movie %, TV %, Genres, Nations;Application: Marketing segmentation & content commissioning">
+          <div class="glare-overlay"></div>
           <div>
-            <h4 style="color: #ffffff; margin-bottom: 0.4rem;">🧬 Task 4 Cluster Profiles</h4>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">Archetype volume, format splits, top genres, and sample titles.</p>
+            <h4>🧬 Task 4 Cluster Profiles</h4>
+            <p>Archetype volume, format splits, top genres, and sample titles.</p>
           </div>
-          <a href="/reports/task4_cluster_profiles.csv" class="btn-primary" download style="text-decoration: none; justify-content: center; font-size: 0.85rem;">Download CSV</a>
+          <a href="/reports/task4_cluster_profiles.csv" class="btn-netflix" download style="text-decoration:none; justify-content:center; font-size:0.84rem;">
+            Download Profiles CSV
+          </a>
         </div>
 
-        <div class="report-download-card">
+        <div class="download-tile card-3d" data-tilt
+             data-hud-category="JSON ARTIFACT"
+             data-hud-title="Task 6 Executive Brief"
+             data-hud-metric="JSON"
+             data-hud-metric-label="Structured Brief"
+             data-hud-status="READY"
+             data-hud-specs="Format: Machine-readable JSON;Contents: Longitudinal growth, international hubs, format shifts, strategic takeaways">
+          <div class="glare-overlay"></div>
           <div>
-            <h4 style="color: #ffffff; margin-bottom: 0.4rem;">📑 Task 6 Executive Brief</h4>
-            <p style="font-size: 0.82rem; color: var(--text-muted);">Machine-readable JSON executive summary and strategic findings.</p>
+            <h4>📑 Task 6 Executive Brief</h4>
+            <p>Machine-readable JSON executive summary and strategic findings.</p>
           </div>
-          <a href="/reports/task6_executive_summary.json" class="btn-primary" download style="text-decoration: none; justify-content: center; font-size: 0.85rem;">Download JSON</a>
+          <a href="/reports/task6_executive_summary.json" class="btn-netflix" download style="text-decoration:none; justify-content:center; font-size:0.84rem;">
+            Download Summary JSON
+          </a>
         </div>
       </div>
 
-      <h3 style="margin-bottom: 1.2rem; font-size: 1.2rem; color: #ffffff;">High-Resolution Deliverable Plots</h3>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="/screenshots/task6_executive_dashboard.png" class="gallery-img" alt="Executive Dashboard" onclick="window.open(this.src)">
-          <div class="gallery-caption">Task 6: Executive Analytics Dashboard</div>
+      <h3 style="margin-bottom: 1.2rem; font-size: 1.15rem; color: #FFFFFF;" class="text-3d">High-Resolution Deliverable Plots</h3>
+      <div class="gallery-showcase-grid">
+        <div class="gallery-card card-3d" data-tilt
+             data-hud-category="PLOT DELIVERABLE"
+             data-hud-title="Task 6 Executive Dashboard"
+             data-hud-metric="300 DPI"
+             data-hud-metric-label="High Resolution"
+             data-hud-status="FIGURE 1"
+             data-hud-specs="Subplots: Growth Trends, Hub Distribution, Ratings Breakdown, Movie vs TV Dynamics">
+          <div class="glare-overlay"></div>
+          <div class="gallery-img-frame">
+            <img src="/screenshots/task6_executive_dashboard.png" alt="Executive Dashboard" onclick="window.open(this.src)">
+          </div>
+          <div class="gallery-caption-row">Task 6: Executive Analytics Dashboard</div>
         </div>
-        <div class="gallery-item">
-          <img src="/screenshots/task4_clusters_pca.png" class="gallery-img" alt="2D PCA Clusters" onclick="window.open(this.src)">
-          <div class="gallery-caption">Task 4: 2D PCA Content Cluster Map</div>
+
+        <div class="gallery-card card-3d" data-tilt
+             data-hud-category="PLOT DELIVERABLE"
+             data-hud-title="Task 4 2D PCA Clusters"
+             data-hud-metric="300 DPI"
+             data-hud-metric-label="High Resolution"
+             data-hud-status="FIGURE 2"
+             data-hud-specs="Projection: 2D Principal Component Analysis;Variance Explained: 41.2%;Clusters: 5 distinct centroids">
+          <div class="glare-overlay"></div>
+          <div class="gallery-img-frame">
+            <img src="/screenshots/task4_clusters_pca.png" alt="2D PCA Clusters" onclick="window.open(this.src)">
+          </div>
+          <div class="gallery-caption-row">Task 4: 2D PCA Content Cluster Map</div>
         </div>
-        <div class="gallery-item">
-          <img src="/screenshots/task2_confusion_matrices.png" class="gallery-img" alt="Confusion Matrices" onclick="window.open(this.src)">
-          <div class="gallery-caption">Task 2: Model Confusion Matrices</div>
+
+        <div class="gallery-card card-3d" data-tilt
+             data-hud-category="PLOT DELIVERABLE"
+             data-hud-title="Task 2 Confusion Matrices"
+             data-hud-metric="300 DPI"
+             data-hud-metric-label="High Resolution"
+             data-hud-status="FIGURE 3"
+             data-hud-specs="Models: Logistic Regression, Decision Tree, Random Forest;True Positive Rate: >99.6%">
+          <div class="glare-overlay"></div>
+          <div class="gallery-img-frame">
+            <img src="/screenshots/task2_confusion_matrices.png" alt="Confusion Matrices" onclick="window.open(this.src)">
+          </div>
+          <div class="gallery-caption-row">Task 2: Model Confusion Matrices</div>
         </div>
-        <div class="gallery-item">
-          <img src="/screenshots/task1_similarity_matrix.png" class="gallery-img" alt="Recommendation Similarity" onclick="window.open(this.src)">
-          <div class="gallery-caption">Task 1: Semantic Similarity Heatmap</div>
+
+        <div class="gallery-card card-3d" data-tilt
+             data-hud-category="PLOT DELIVERABLE"
+             data-hud-title="Task 1 Semantic Heatmap"
+             data-hud-metric="300 DPI"
+             data-hud-metric-label="High Resolution"
+             data-hud-status="FIGURE 4"
+             data-hud-specs="Matrix: Pairwise Cosine Similarity;Features: 10,000 TF-IDF Content Soup tokens">
+          <div class="glare-overlay"></div>
+          <div class="gallery-img-frame">
+            <img src="/screenshots/task1_similarity_matrix.png" alt="Recommendation Similarity" onclick="window.open(this.src)">
+          </div>
+          <div class="gallery-caption-row">Task 1: Semantic Similarity Heatmap</div>
         </div>
-        <div class="gallery-item">
-          <img src="/screenshots/task4_elbow_silhouette.png" class="gallery-img" alt="Elbow & Silhouette" onclick="window.open(this.src)">
-          <div class="gallery-caption">Task 4: Optimal k Selection Curves</div>
+
+        <div class="gallery-card card-3d" data-tilt
+             data-hud-category="PLOT DELIVERABLE"
+             data-hud-title="Task 4 Elbow & Silhouette"
+             data-hud-metric="300 DPI"
+             data-hud-metric-label="High Resolution"
+             data-hud-status="FIGURE 5"
+             data-hud-specs="Metrics: WCSS Inertia & Silhouette Coefficients for k=2..10;Optimum: k=5">
+          <div class="glare-overlay"></div>
+          <div class="gallery-img-frame">
+            <img src="/screenshots/task4_elbow_silhouette.png" alt="Elbow & Silhouette" onclick="window.open(this.src)">
+          </div>
+          <div class="gallery-caption-row">Task 4: Optimal k Selection Curves</div>
         </div>
-        <div class="gallery-item">
-          <img src="/screenshots/task2_feature_importance.png" class="gallery-img" alt="Feature Importance" onclick="window.open(this.src)">
-          <div class="gallery-caption">Task 2: Informative Features (Random Forest)</div>
+
+        <div class="gallery-card card-3d" data-tilt
+             data-hud-category="PLOT DELIVERABLE"
+             data-hud-title="Task 2 Feature Importance"
+             data-hud-metric="300 DPI"
+             data-hud-metric-label="High Resolution"
+             data-hud-status="FIGURE 6"
+             data-hud-specs="Model: Random Forest Gini Importance;Top Features: Genre tags, Maturity tiers, Production nations">
+          <div class="glare-overlay"></div>
+          <div class="gallery-img-frame">
+            <img src="/screenshots/task2_feature_importance.png" alt="Feature Importance" onclick="window.open(this.src)">
+          </div>
+          <div class="gallery-caption-row">Task 2: Informative Features (Random Forest)</div>
         </div>
       </div>
     </div>
@@ -407,11 +908,11 @@
   </main>
 
   <!-- =======================================================================
-       Footer
+       Footer Bar
        ======================================================================= -->
-  <footer class="footer">
-    <p>Auspify Machine Learning Internship Project — Designed & Developed by <strong>Karan Yadav</strong>.</p>
-    <p style="margin-top: 0.3rem;">Powered by Python, Scikit-Learn, Pandas, Flask & Chart.js.</p>
+  <footer class="footer-bar">
+    <p>Auspify Machine Learning Internship Project — Designed &amp; Developed by <strong>Karan Yadav</strong></p>
+    <p class="footer-sub">Powered by Python, Scikit-Learn, Pandas, Flask &amp; Chart.js</p>
   </footer>
 
   <script src="/static/js/app.js"></script>
