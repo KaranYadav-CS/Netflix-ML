@@ -9,7 +9,7 @@
 **Developer:** **Karan Yadav**  
 **Program:** Auspify Machine Learning Internship  
 **Repository:** [https://github.com/Karan898989/netflix-ml-internship](https://github.com/Karan898989/netflix-ml-internship)  
-**Live Application:** [https://karan898989.github.io/netflix-ml-internship/](https://karan898989.github.io/netflix-ml-internship/)  
+**Live Application:** [https://karanyadav-cs.github.io/Netflix-ML/](https://karanyadav-cs.github.io/Netflix-ML/)  
 
 This repository contains the complete practical implementation of the **4 selected machine learning tasks** for the **Auspify Machine Learning Internship Program**, built on the comprehensive Kaggle **Netflix Movies and TV Shows dataset (8,807 titles)**.
 
