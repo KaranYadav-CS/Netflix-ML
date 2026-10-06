@@ -1,0 +1,14 @@
+# Vercel deployment ignore list
+.git
+.github
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints
+notebooks/
+generate_notebooks.py
+run_all.py
+.venv
+env/
+venv/
